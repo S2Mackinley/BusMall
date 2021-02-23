@@ -107,7 +107,7 @@ function pictureClickHandler(event) {
     pickNewImages();
     if (totalClicks >= maxClicks) {
         imageAllTag.removeEventListener('click', pictureClickHandler);
-        alert('You are out of clicks.');
+        alert('You are out of clicks. Scroll down for results <3');
         renderLikes();
     }
 }
