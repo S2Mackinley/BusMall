@@ -9,7 +9,7 @@ const imageTwoCaption = document.getElementById('image2-P');
 const imageThreeTag = document.getElementById('image3');
 const imageThreeCaption = document.getElementById('image3-P');
 
-const maxClicks = 26;
+const maxClicks = 25;
 let totalClicks = 0;
 
 //image/caption constructor function
