@@ -49,6 +49,27 @@ h2 {
 
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 25px;
+  text-decoration: none;
+}
+
+
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
 section {
   width: 90%;
   margin: 4rem auto;
@@ -65,8 +86,9 @@ section {
   flex: 1;
   border: 5px solid black;
   border-radius: 10px;
-  min-width: 0;
+  min-width: 100px;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+  height: 380px;
 }
 
 footer {
@@ -95,7 +117,11 @@ button#show-results {
   margin-right: 70px;
 }
 
-button#reset {
+button#reset-results {
+
+  position: relative;
+  left: 500px;
+  top: 70px;
   padding-left: 45px;
   padding-right: 45px;
 }
@@ -108,6 +134,11 @@ button#reset {
   border: 2px solid black;
   border-radius: 20px;
   padding: 20px;
+  list-style: none;
+}
+
+#results-list {
+  text-align: center;
 }
 
 #prod-list {

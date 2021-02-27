@@ -2,8 +2,8 @@
 
 /* Globals */
 
-const productNames = ['bag','banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck',
-'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass']
+const productNames = ['Bag','Banana', 'Bathroom', 'Boots', 'Breakfast', 'Bubblegum', 'Chair', 'Cthulhu', 'Dog-Duck',
+'Dragon', 'Pen', 'Pet-Sweep', 'Scissors', 'Shark', 'Sweep', 'Tauntaun', 'Unicorn', 'Usb', 'Water-Can', 'Wine-Glass']
 // DANGER: DEBUG
 // const productNames = ['boots', 'dog-duck', 'tauntaun', 'breakfast', 'bathroom', 'bubblegum'];
 
@@ -115,6 +115,10 @@ function shuffle(array) {
   }
 }
 
+function resetLikes() {
+  localStorage.clear();
+}
+
 function productClickHandler(event) {
 
   const productId = event.target.id;
@@ -164,6 +168,9 @@ function productClickHandler(event) {
     const resultsButton = document.getElementById('show-results');
     resultsButton.addEventListener('click',renderLikes);
 
+    const resetButton = document.getElementById('reset-results');
+    resetButton.addEventListener('click',resetLikes)
+
   }
 
 }
@@ -172,7 +179,7 @@ function productClickHandler(event) {
 
 function renderLikes() {
   const likesListELem = document.getElementById('results-list');
-  likesListELem.innerHTML = '';
+  likesListELem.innerHTML = '<h3> RESULTS </h3>';
   console.log(Product.all);
   for (let i = 0; i < Product.all.length; i++) {
       const itemProduct = Product.all[i];
@@ -216,13 +223,13 @@ for (let index = 0; index < Product.all.length; index++) {
       labels: productTitle,
       datasets: [{
         label: 'How Many Times Product Was Clicked',
-        backgroundColor: 'rgb(69, 99, 132)',
+        backgroundColor: 'rgb(34,139,34)',
         borderColor: 'rgb(255, 99, 132)',
         data: tallyArray,
       },
       {
         label: 'How many Times Products Were Viewed',
-        backgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgb(128,128,128)',
         borderColor: 'rgb(255, 99, 132)',
         data: viewsArray
     }] 
@@ -236,30 +243,7 @@ for (let index = 0; index < Product.all.length; index++) {
 
 imagesContainerElem.addEventListener('click', productClickHandler);
 
-// Before i create my products i need to check if i have products already in local storage. 
 
-// if i do im going to use those products. 
-
-// else if i dont i need to call the create product function
-
-
-// if (localStorage.getItem('totalClicks') !== null) {
-//   console.log('You Have Saved Dated');
-//   Product.all = JSON.parse(localStorage.getItem('totalClicks'));
-// } else {
-//   console.log('You Have No Saved Data');
-//   localStorage.setItem('totalClicks', JSON.stringify(Product.all));
-// }
-// console.log('what?',localStorage);
-
-// function updateChartVotes() {
-//   for (var i = 0; i < Product.all.length; i++) {
-//     tallyArray = Product.all[i].tally;
-//     // console.log('tally',tallyArray)
-
-//     //what
-//   }
-// }
 
 createPicInstances();
 
@@ -271,5 +255,3 @@ renderProducts();
 
 
 // localStorage.clear();
-
-
